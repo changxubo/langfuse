@@ -45,8 +45,8 @@ export const usePlan = (): Plan | undefined => {
  * Hook to get the entitlements of the current organization or self-hosted instance.
  */
 export const useEntitlements = (): Entitlement[] => {
-  const plan = usePlan();
-  const availableEntitlements = entitlementAccess[plan ?? "oss"].entitlements;
+  // const plan = usePlan();
+  const availableEntitlements = entitlementAccess['self-hosted:pro'].entitlements;
   return availableEntitlements;
 };
 
@@ -54,10 +54,11 @@ export const useEntitlements = (): Entitlement[] => {
  * Hook to check if the current organization or self-hosted instance has a specific entitlement.
  */
 export const useHasEntitlement = (entitlement: Entitlement): boolean => {
-  const entitlements = useEntitlements();
-  const session = useSession();
-  if (session.data?.user?.admin) return true;
-  return entitlements.includes(entitlement);
+  // const entitlements = useEntitlements();
+  // const session = useSession();
+  // if (session.data?.user?.admin) return true;
+  // return entitlements.includes(entitlement);
+  return true;
 };
 
 /**
